@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Order words in sentence</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <h2>Past Continuous & Past Simple</h2>
+            <p class="task">Put the words into the correct order</p>
+            <div class="top_line">
+                <span id="timeDisplay">00:00</span>
+                <div class="top_right_el">
+                    <span class="star"></span>
+                    <span id="pointsDisplay" class="points">0</span>
+
+                </div>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- <div class="swiper-slide">
+                        <div class="items">
+                            <span class="element">sleeping</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="bottom-line">
+                <span class="menu"></span>
+                <div class="bottom_btn_box">
+                    <button class="btn-prev"></button>
+                    <span class="items_count">1 - 10</span>
+                    <button class="btn-next"></button>
+                </div>
+                <div class="bottom_right_el">
+                    <span id="soundToggle" class="sound"></span>
+                    <span class="full-screen">full</span>
+                </div>
+            </div>
+            <!-- Pop up game end -->
+            <div id="gameEndPopup" class="popup hidden">
+                <div class="popup-content">
+                    <p class="popup-font">Game Over</p>
+                    <div class="sore-time_list">
+                        <div class="score_list">
+                            <p class="label-text">Score</p>
+                            <p id="popupScore" class="value-text">0</p>
+                        </div>
+                        <div class="time-list">
+                            <p class="label-text">Time</p>
+                            <p id="popupTime" class="value-text">0</p>
+                        </div>
+                    </div>
+                    <div class="button_list">
+                        <button id="popupWinners">Winners</button>
+                        <button id="showAnswersBtn">Show Answers</button>
+                        <button id="restartBtn">Restart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Pop up winners' table -->
+            <div id="leaderboardPopup" class="popup hidden">
+                <div class="popup-content">
+                    <p class="popup-font">Leaderboard</p>
+                    <table id="leaderboardTable">
+                        <tbody></tbody>
+                    </table>
+                    <button id="closeLeaderboardBtn">Back</button>
+                </div>
+            </div>
+            <!-- Pop up input for getting name -->
+            <div id="nameModal" class="popup hidden">
+                <div class="popup-content">
+                    <p class="label-input">Congratulations!</p>
+                    <p class="label-input">You made it to the leaderboard!</p>
+                    <input id="playerNameInput" placeholder="Your name" maxlength="9" />
+                    <button id="saveNameBtn">Save</button>
+                </div>
+            </div>
+            <!-- Pop up for showing right answers -->
+            <div id="answersPopup" class="popup hidden">
+                <div class="popup-content">
+                    <p>Correct Answers</p>
+                    <table id="answersTable">
+                        <tbody></tbody>
+                    </table>
+                    <button id="closeAnswersBtn">Back</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>
