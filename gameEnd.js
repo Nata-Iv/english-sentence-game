@@ -20,7 +20,7 @@ export function showGamePopup({ score, time }) {
   });
 
   document.getElementById("showAnswersBtn").onclick = () => {
-    showAnswersPopup(sentences);
+    showAnswersPopup();
   };
 
   document.getElementById("restartBtn").onclick = () => {
@@ -75,13 +75,13 @@ function savePlayer(name, score, time) {
   localStorage.setItem("players", JSON.stringify(topPlayers));
 }
 
-function showAnswersPopup(correctSentences) {
+export function showAnswersPopup(nextPopupId = null) {
   const answersPopup = document.getElementById("answersPopup");
   const tbody = document.querySelector("#answersTable tbody");
 
   tbody.innerHTML = "";
 
-  correctSentences.forEach((sentence, index) => {
+  sentences.forEach((sentence, index) => {
     const row = document.createElement("tr");
     const tdNum = document.createElement("td");
     const tdSentence = document.createElement("td");
@@ -101,6 +101,9 @@ function showAnswersPopup(correctSentences) {
 
   document.getElementById("closeAnswersBtn").onclick = () => {
     answersPopup.classList.add("hidden");
-    document.getElementById("gameEndPopup").classList.remove("hidden");
+    if (nextPopupId) {
+      document.getElementById(nextPopupId).classList.remove("hidden");
+    }
+    // document.getElementById("gameEndPopup").classList.remove("hidden");
   };
 }

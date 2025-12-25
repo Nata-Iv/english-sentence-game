@@ -20,7 +20,7 @@ body {
 
 .wrapper {
   max-width: 700px;
-  margin: 30px auto;
+  margin: 50px auto;
   border: 3px solid gray;
   border-radius: 10px;
   padding: 0px 30px;
@@ -106,8 +106,7 @@ h2 {
 }
 
 .correct .element-inner {
-  background-color: #4caf50; /* зеленый */
-  /* transition: background 0.3s; */
+  background-color: #4caf50;
 }
 
 .drop-indicator {
@@ -140,7 +139,8 @@ h2 {
 .btn-prev,
 .btn-next,
 .sound,
-.full-screen {
+.full-screen,
+.full-screen_close {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -187,6 +187,12 @@ h2 {
 
 .full-screen {
   content: url(./img/full_screen.svg);
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.full-screen_close {
+  content: url(./img/full-screen-exit.svg);
   vertical-align: middle;
   margin-left: 10px;
 }
@@ -318,4 +324,19 @@ td.player-time {
 
 #answersPopup td {
   padding: 5px 10px;
+}
+
+@media screen and (max-width: 394px) {
+  .bottom_btn_box {
+    display: none;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .task {
+    font-size: 18px;
+  }
+  .container {
+    padding: 0;
+  }
 }

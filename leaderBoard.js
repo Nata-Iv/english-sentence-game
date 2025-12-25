@@ -1,21 +1,3 @@
-// const players = [
-//   {
-//     name: "Natalia",
-//     score: 12,
-//     time: "0:75",
-//   },
-//   {
-//     name: "Helen",
-//     score: 53,
-//     time: "0:78",
-//   },
-//   {
-//     name: "Fred",
-//     score: 11,
-//     time: "0:72",
-//   },
-// ];
-
 export function showLeaderboard() {
   const topPlayers = JSON.parse(localStorage.getItem("players")) || [];
 

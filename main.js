@@ -1,4 +1,5 @@
 import { showGamePopup } from "./gameEnd.js";
+import { showPopupMenu } from "./popupMenu.js";
 
 export const sentences = [
   "It was raining all day yesterday",
@@ -102,6 +103,29 @@ function cancelAutoSlide() {
     autoSlideTimer = null;
   }
 }
+
+// Menu button
+
+const menuBtn = document.getElementById("menuBtn");
+menuBtn.addEventListener("click", () => {
+  showPopupMenu({ finishGame: finishGame });
+});
+
+// Full screen button
+
+const fullScreenBtn = document.getElementById("fullScreen");
+
+fullScreenBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    fullScreenBtn.classList.remove("full-screen");
+    fullScreenBtn.classList.add("full-screen_close");
+  } else {
+    document.exitFullscreen();
+    fullScreenBtn.classList.remove("full-screen_close");
+    fullScreenBtn.classList.add("full-screen");
+  }
+});
 
 // Points
 
@@ -311,10 +335,10 @@ items.forEach((p) => {
 
     if (!dragged) return;
 
-    const r1 = dragged.getBoundingClientRect(); // старая позиция
-    indicator.parentNode.replaceChild(dragged, indicator); // Меняем DOM
-    const r2 = dragged.getBoundingClientRect(); // новая позиция
-    const clone = dragged.cloneNode(true); // Создаём клон только для draggedEl
+    const r1 = dragged.getBoundingClientRect(); // previous position
+    indicator.parentNode.replaceChild(dragged, indicator); // change DOM
+    const r2 = dragged.getBoundingClientRect(); // new position
+    const clone = dragged.cloneNode(true); // create clone for draggedEl
     clone.classList.add("clone-anim");
 
     clone.style.left = r1.left + "px";

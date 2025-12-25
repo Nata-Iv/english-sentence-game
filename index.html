@@ -20,20 +20,14 @@
                 <div class="top_right_el">
                     <span class="star"></span>
                     <span id="pointsDisplay" class="points">0</span>
-
                 </div>
             </div>
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <!-- <div class="swiper-slide">
-                        <div class="items">
-                            <span class="element">sleeping</span>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="bottom-line">
-                <span class="menu"></span>
+                <span id="menuBtn" class="menu"></span>
                 <div class="bottom_btn_box">
                     <button class="btn-prev"></button>
                     <span class="items_count">1 - 10</span>
@@ -41,7 +35,19 @@
                 </div>
                 <div class="bottom_right_el">
                     <span id="soundToggle" class="sound"></span>
-                    <span class="full-screen">full</span>
+                    <span id="fullScreen" class="full-screen"></span>
+                </div>
+            </div>
+            <!-- Pop up menu -->
+            <div id="menuPopup" class="popup hidden">
+                <div class="popup-content">
+                    <p class="popup-font">Menu</p>
+                    <div class="menu_list">
+                        <button id="restartMenu">Restart</button>
+                        <button id="finishGameMenu">Finish game</button>
+                        <button id="showAnswersMenu">Show Answers</button>
+                        <button id="exitMenu">Back to game</button>
+                    </div>
                 </div>
             </div>
             <!-- Pop up game end -->
@@ -87,7 +93,7 @@
             <!-- Pop up for showing right answers -->
             <div id="answersPopup" class="popup hidden">
                 <div class="popup-content">
-                    <p>Correct Answers</p>
+                    <p class="popup-font">Correct Answers</p>
                     <table id="answersTable">
                         <tbody></tbody>
                     </table>
