@@ -4,14 +4,14 @@ import { showPopupMenu } from "./popupMenu.js";
 export const sentences = [
   "I was reading a book at 9 pm last night",
   "It was raining all day yesterday",
-  // "They were having dinner when the phone rang",
+  "They were having dinner when the phone rang",
   "While I was studying, my friends were watching TV",
   "She was driving home when I saw her",
-  // "We were watching the sunset at 6 pm",
-  // "He was working on his diploma for several months",
-  // "This time last year, I was living in Paris",
-  // "The sun was shining and we were walking in the park",
-  // "When I came home, my brother was sleeping",
+  "We were watching the sunset at 6 pm",
+  "He was working on his diploma for several months",
+  "This time last year, I was living in Paris",
+  "The sun was shining and we were walking in the park",
+  "When I came home, my brother was sleeping",
 ];
 
 let shuffledSentences = [];
