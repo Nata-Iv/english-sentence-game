@@ -52,7 +52,7 @@ async function checkIfPlayerInTop(score, time) {
   const snapshot = await get(winnersInDB);
   const players = snapshot.exists() ? snapshot.val() : [];
 
-  if (players.length < 5) return true;
+  if (players.length < 5 && score > 0) return true;
 
   const lastPlayer = players[players.length - 1];
 
