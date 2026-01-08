@@ -2,10 +2,10 @@ import { showGamePopup } from "./gameEnd.js";
 import { showPopupMenu } from "./popupMenu.js";
 
 export const sentences = [
+  "I was reading a book at 9 pm last night",
   "It was raining all day yesterday",
-  // "I was reading a book at 9 pm last night",
   // "They were having dinner when the phone rang",
-  // "While I was studying, my friends were watching TV",
+  "While I was studying, my friends were watching TV",
   "She was driving home when I saw her",
   // "We were watching the sunset at 6 pm",
   // "He was working on his diploma for several months",
@@ -114,16 +114,31 @@ menuBtn.addEventListener("click", () => {
 // Full screen button
 
 const fullScreenBtn = document.getElementById("fullScreen");
+const wrapper = document.querySelector(".wrapper");
+const body = document.querySelector("body");
+const swiperContainer = document.querySelector(".swiper");
+
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    wrapper.classList.add("full-screen_wrapper");
+    body.classList.add("full-screen_bg");
+    swiperContainer.classList.add("full-screen_h");
+    fullScreenBtn.classList.remove("full-screen");
+    fullScreenBtn.classList.add("full-screen_close");
+  } else {
+    wrapper.classList.remove("full-screen_wrapper");
+    body.classList.remove("full-screen_bg");
+    swiperContainer.classList.remove("full-screen_h");
+    fullScreenBtn.classList.remove("full-screen_close");
+    fullScreenBtn.classList.add("full-screen");
+  }
+});
 
 fullScreenBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
-    fullScreenBtn.classList.remove("full-screen");
-    fullScreenBtn.classList.add("full-screen_close");
   } else {
     document.exitFullscreen();
-    fullScreenBtn.classList.remove("full-screen_close");
-    fullScreenBtn.classList.add("full-screen");
   }
 });
 
@@ -144,7 +159,7 @@ function showPlusOne(targetEl) {
   document.body.appendChild(plus);
 
   requestAnimationFrame(() => {
-    plus.style.transform = "translateY(-25px)";
+    plus.style.transform = "translateY(-55px)";
     plus.style.opacity = "0";
   });
 
@@ -305,7 +320,7 @@ draggableElements.forEach((el) => {
 
         autoSlideTimer = setTimeout(() => {
           swiper.slideNext();
-        }, 4000);
+        }, 2000);
       }
 
       checkGameFinished();

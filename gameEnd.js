@@ -1,5 +1,8 @@
 import { sentences } from "./main.js";
 import { showLeaderboard } from "./leaderBoard.js";
+import { database, ref, set, get } from "./firebase.js";
+
+const winnersInDB = ref(database, "winners");
 
 export function showGamePopup({ score, time }) {
   const popup = document.getElementById("gameEndPopup");
@@ -11,9 +14,11 @@ export function showGamePopup({ score, time }) {
 
   popup.classList.remove("hidden");
 
-  if (checkIfPlayerInTop(score, time)) {
-    askPlayerName((name) => savePlayer(name, score, time));
-  }
+  checkIfPlayerInTop(score, time).then((isTop) => {
+    if (isTop) {
+      askPlayerName((name) => savePlayer(name, score, time));
+    }
+  });
 
   document.getElementById("popupWinners").addEventListener("click", () => {
     showLeaderboard();
@@ -43,8 +48,9 @@ function askPlayerName(handleName) {
   };
 }
 
-function checkIfPlayerInTop(score, time) {
-  const players = JSON.parse(localStorage.getItem("players")) || [];
+async function checkIfPlayerInTop(score, time) {
+  const snapshot = await get(winnersInDB);
+  const players = snapshot.exists() ? snapshot.val() : [];
 
   if (players.length < 5) return true;
 
@@ -56,10 +62,11 @@ function checkIfPlayerInTop(score, time) {
   return false;
 }
 
-function savePlayer(name, score, time) {
+async function savePlayer(name, score, time) {
   const player = { name, score, time };
 
-  const players = JSON.parse(localStorage.getItem("players")) || [];
+  const snapshot = await get(winnersInDB);
+  const players = snapshot.exists() ? snapshot.val() : [];
 
   players.push(player);
 
@@ -72,7 +79,7 @@ function savePlayer(name, score, time) {
 
   const topPlayers = players.slice(0, 5);
 
-  localStorage.setItem("players", JSON.stringify(topPlayers));
+  await set(winnersInDB, topPlayers);
 }
 
 export function showAnswersPopup(nextPopupId = null) {
@@ -104,6 +111,5 @@ export function showAnswersPopup(nextPopupId = null) {
     if (nextPopupId) {
       document.getElementById(nextPopupId).classList.remove("hidden");
     }
-    // document.getElementById("gameEndPopup").classList.remove("hidden");
   };
 }

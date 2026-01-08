@@ -67,7 +67,7 @@ h2 {
   font-weight: bold;
   pointer-events: none;
   transition: transform 0.7s ease, opacity 0.7s ease;
-  font-size: 20px;
+  font-size: 36px;
 }
 
 .swiper {
@@ -96,13 +96,13 @@ h2 {
 }
 
 .element-inner {
-  border: 2px solid gray;
-  border-radius: 3px;
+  border: 3px solid gray;
+  border-radius: 5px;
   background-color: rgb(105, 104, 104);
   color: white;
+  font-size: 38px;
   font-weight: 500;
-  padding: 3px 5px;
-  /* pointer-events: none; */
+  padding: 8px 15px;
 }
 
 .correct .element-inner {
@@ -112,9 +112,9 @@ h2 {
 .drop-indicator {
   display: inline-flex;
   width: 3px;
-  height: 42px;
-  border-radius: 3px;
-  background: red;
+  height: 74px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.36);
   margin-top: 5px;
 }
 
@@ -124,7 +124,7 @@ h2 {
   box-sizing: border-box;
   pointer-events: none;
   z-index: 9999;
-  transition: all 0.45s ease;
+  transition: all 0.55s ease;
 }
 
 .bottom-line {
@@ -324,6 +324,33 @@ td.player-time {
 
 #answersPopup td {
   padding: 5px 10px;
+}
+
+.wrapper.full-screen_wrapper {
+  max-width: none;
+  border: none;
+  margin: 35px auto;
+}
+
+body.full-screen_bg {
+  background-color: white;
+}
+
+.swiper.full-screen_h {
+  height: 65vh;
+}
+
+@media screen and (max-width: 700px) {
+  .element-inner {
+    border: 2px solid gray;
+    border-radius: 3px;
+    font-size: 26px;
+    padding: 3px 5px;
+  }
+  .drop-indicator {
+    height: 44px;
+    border-radius: 3px;
+  }
 }
 
 @media screen and (max-width: 394px) {
